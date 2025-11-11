@@ -1,4 +1,5 @@
 version: "3.9"
+
 services:
   backend:
     build: ./backend
@@ -8,5 +9,24 @@ services:
     volumes:
       - ./backend:/app
     environment:
+      - DATABASE_URL=postgresql+psycopg2://postgres:postgres@db:5432/releaseradar
       - FIREBASE_CREDENTIALS_PATH=/app/app/firebase.json
+    depends_on:
+      - db
     restart: always
+
+  db:
+    image: postgres:15
+    container_name: releaseradar-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: releaseradar
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
