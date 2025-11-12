@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routes import watchlist
 from app.db import init_db
+from app.scheduler import start_scheduler
 
 app = FastAPI(title="ReleaseRadar API")
 
@@ -15,6 +16,7 @@ app.add_middleware(
 @app.on_event("startup")
 def on_startup():
     init_db()
+    start_scheduler()
 
 @app.get("/")
 def root():
