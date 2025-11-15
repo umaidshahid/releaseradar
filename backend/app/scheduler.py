@@ -1,15 +1,18 @@
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.interval import IntervalTrigger
 from app.jobs.fetch_releases import fetch_github_releases
-import asyncio
+
+scheduler = BackgroundScheduler()
 
 def start_scheduler():
-    scheduler = BackgroundScheduler()
+    print(">>> starting scheduler…")
+    
     scheduler.add_job(
-        lambda: asyncio.run(fetch_github_releases()),
-        trigger=IntervalTrigger(minutes=5),
+        fetch_github_releases,            # PURE SYNC CALL
+        trigger=IntervalTrigger(seconds=30),
         id="release_fetcher",
         replace_existing=True
     )
+    
     scheduler.start()
-    print("✅ Scheduler started (runs every 5 min)")
+    print("✅ Scheduler started (runs every 30 sec)")

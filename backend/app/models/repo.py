@@ -7,3 +7,8 @@ class Repo(SQLModel, table=True):
     user_uid: str
     repo_name: str
     created_at: datetime = Field(default_factory=datetime.utcnow)
+
+    latest_tag: Optional[str] = None
+    previous_tag: Optional[str] = None
+    last_checked: Optional[datetime] = None
+

@@ -6,3 +6,5 @@ sqlmodel
 psycopg2-binary
 apscheduler
 httpx
+sse-starlette
+packaging

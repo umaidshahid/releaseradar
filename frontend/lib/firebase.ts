@@ -5,6 +5,8 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -18,13 +20,13 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-// Firebase Auth
 export const auth = getAuth(app);
 
-// Export all auth helpers
 export {
   onAuthStateChanged,
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
 };
