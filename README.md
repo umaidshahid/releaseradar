@@ -8,7 +8,10 @@ Track and get notified when your favorite libraries and GitHub repos release new
 - **Database:** Postgres (coming next)
 - **Deployment:** Docker + AWS
 
-### Run backend locally
+### Run locally with Docker
 ```bash
 docker compose up --build
-Then open http://localhost:8080
+```
+
+- Backend API: http://localhost:8080
+- Frontend app: http://localhost:3000
