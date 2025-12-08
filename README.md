@@ -2,7 +2,7 @@
 
 Track GitHub repository releases and NPM package updates in real-time. Full-stack, containerized, deployed on AWS EC2, and powered by Firebase authentication.
 
-Live Demo → **[http://13.60.245.64](http://13.60.245.64)**
+Live Demo → **[http://13.60.245.64](http://51.21.1.10/)**
 
 ---
 
